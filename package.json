@@ -5,6 +5,9 @@
   "version": "0.1.0",
   "publisher": "jsabacinski",
   "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/jsabacinski/markdown-preview-wheel-zoom.git" },
+  "bugs": { "url": "https://github.com/jsabacinski/markdown-preview-wheel-zoom/issues" },
+  "homepage": "https://github.com/jsabacinski/markdown-preview-wheel-zoom#readme",
   "icon": "media/icon.png",
   "galleryBanner": {
     "color": "#111827",
@@ -35,6 +38,6 @@
     ]
   },
   "scripts": {
-    "package": "npx @vscode/vsce package --allow-missing-repository"
+    "package": "npx @vscode/vsce package"
   }
 }
