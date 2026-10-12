@@ -1,0 +1,40 @@
+{
+  "name": "markdown-preview-wheel-zoom",
+  "displayName": "Markdown Preview Wheel Zoom",
+  "description": "Ctrl + scroll to zoom the built-in Markdown preview, like in a browser. Independent of window zoom, works with Foam, Mermaid and other preview extensions.",
+  "version": "0.1.0",
+  "publisher": "jsabacinski",
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#111827",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "markdown",
+    "preview",
+    "zoom",
+    "mouse wheel",
+    "ctrl scroll"
+  ],
+  "capabilities": {
+    "virtualWorkspaces": true,
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
+  "contributes": {
+    "markdown.previewScripts": [
+      "./media/zoom.js"
+    ]
+  },
+  "scripts": {
+    "package": "npx @vscode/vsce package --allow-missing-repository"
+  }
+}
