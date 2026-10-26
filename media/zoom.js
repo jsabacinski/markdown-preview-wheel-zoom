@@ -1,6 +1,6 @@
 // Markdown Preview Wheel Zoom
 // Injected into VS Code's built-in Markdown preview via the `markdown.previewScripts`
-// contribution point. Ctrl + mouse wheel (or trackpad pinch) zooms the preview content.
+// contribution point. Ctrl + mouse wheel (Cmd on macOS, or trackpad pinch) zooms the preview content.
 // The zoom level is kept per preview origin in localStorage and survives content updates.
 (function () {
   'use strict';
@@ -17,6 +17,9 @@
   var STEP = 0.1;
   var WHEEL_NOTCH = 50; // accumulated |deltaY| that counts as one step (trackpads send small deltas)
   var BADGE_MS = 1500;
+  var isMac = /mac/i.test(
+    (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || ''
+  );
 
   var level = load();
   var accumulated = 0;
@@ -75,7 +78,7 @@
     badge = document.createElement('button');
     badge.id = 'md-wheel-zoom-badge';
     badge.type = 'button';
-    badge.title = 'Markdown preview zoom. Click to reset. Ctrl + mouse wheel to zoom.';
+    badge.title = 'Markdown preview zoom. Click to reset. ' + (isMac ? 'Cmd' : 'Ctrl') + ' + mouse wheel to zoom.';
     var s = badge.style;
     s.position = 'fixed';
     s.right = '12px';
@@ -115,7 +118,9 @@
   }
 
   function onWheel(e) {
-    if (!e.ctrlKey || e.altKey || e.shiftKey) {
+    // Trackpad pinch arrives as Ctrl + wheel on every platform, so Ctrl stays enabled on macOS too.
+    var modifier = e.ctrlKey || (isMac && e.metaKey);
+    if (!modifier || e.altKey || e.shiftKey) {
       return;
     }
     e.preventDefault();

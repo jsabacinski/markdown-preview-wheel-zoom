@@ -1,8 +1,8 @@
 {
   "name": "markdown-preview-wheel-zoom",
   "displayName": "Markdown Preview Wheel Zoom",
-  "description": "Ctrl + scroll to zoom the built-in Markdown preview, like in a browser. Independent of window zoom, works with Foam, Mermaid and other preview extensions.",
-  "version": "0.1.0",
+  "description": "Ctrl + scroll (Cmd + scroll on macOS) to zoom the built-in Markdown preview, like in a browser. Independent of window zoom, works with Foam, Mermaid and other preview extensions.",
+  "version": "0.1.1",
   "publisher": "jsabacinski",
   "license": "MIT",
   "repository": { "type": "git", "url": "https://github.com/jsabacinski/markdown-preview-wheel-zoom.git" },
